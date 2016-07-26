@@ -1,1 +1,36 @@
-/**/stylesheet for cookie stand
+body {
+  background-color: #FFD2AF;
+  color: #6AD4FF;
+}
+
+h1 {
+  font-family: verdana;
+  text-align: center;
+}
+
+nav {
+        float: left;
+        margin-left : 33%;
+    }
+    nav ul {
+        padding: 10px ;
+        float: left;
+        border-bottom: 10px;
+        border: 2px solid #6AD4FF;
+
+    }
+    nav li {
+        float: left;
+        display: block;
+        height: 25px;
+        padding: 12px 18px 8px 18px;
+        vertical-align: middle;
+        text-decoration: underline;
+
+    }
+
+img{
+  width: 250px;
+  height: 100px;
+  margin-left: 40%;
+}
