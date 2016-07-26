@@ -60,6 +60,10 @@ function makeHeaderRow() {
     thElement.textContent = hours[i];
     tableRow.appendChild(thElement);
   };
+  //create daily location total header table cell :
+  thElement = document.createElement('th');
+  thElement.textContent = 'Daily Location Total:';
+  tableRow.appendChild(thElement);
   storeTable.appendChild(tableRow);
 }
 
@@ -76,6 +80,9 @@ function makeAllStoreRows() {
       tdElement.textContent = myStores[store].cookiesSoldEachHour[i];
       tableRow.appendChild(tdElement);
     }
+    tdElement = document.createElement('td');
+    tdElement.textContent = myStores[store].totalCookies;
+    tableRow.appendChild(tdElement);
     storeTable.appendChild(tableRow);
   }
 };
