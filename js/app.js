@@ -36,9 +36,15 @@ firstPike.render = function() {
   for(var i = 0; i < this.firstPikeArray.length; i++) {
     this.finalArray.push(hours[i] + this.firstPikeArray[i] + ' cookies');
   }
+  this.finalArray.push('Total: ' + this.totalCookies);
 };
 
 firstPike.render();
+
+var pikeTitle = document.createElement('h2');
+document.body.appendChild(pikeTitle);
+
+pikeTitle.textContent = firstPike.name;
 
 var firstPikeList = document.createElement('ul');
 
@@ -86,9 +92,15 @@ seatac.render = function() {
   for (var i = 0; i < this.seatacArray.length; i++) {
     this.finalArray.push(hours[i] + this.seatacArray[i] + ' cookies');
   }
+  this.finalArray.push('Total: ' + this.totalCookies);
 };
 
 seatac.render();
+
+var seatacTitle = document.createElement('h2');
+document.body.appendChild(seatacTitle);
+
+seatacTitle.textContent = seatac.name;
 
 var seatacList = document.createElement('ul');
 
@@ -136,9 +148,15 @@ center.render = function() {
   for (var i = 0; i < this.centerArray.length; i++) {
     this.finalArray.push(hours[i] + this.centerArray[i] + ' cookies');
   }
+  this.finalArray.push('Total: ' + this.totalCookies);
 };
 
 center.render();
+
+var centerTitle = document.createElement('h2');
+document.body.appendChild(centerTitle);
+
+centerTitle.textContent = center.name;
 
 var centerList = document.createElement('ul');
 
@@ -149,6 +167,61 @@ for (i = 0; i < center.finalArray.length; i++) {
 };
 
 document.body.appendChild(centerList);
+
+// Capitol Hill store object :
+var capHill = {
+  minCust: 20,
+  maxCust: 38,
+  avgCookie: 2.3,
+  avgCust: [],
+  capHillArray: [],
+  totalCookies: 0,
+  finalArray: [],
+  name : 'Capitol Hill',
+};
+
+  // methods :
+capHill.numCustHourly = function() {
+  for (var i = 0; i < hours.length; i++ ) {
+    this.avgCust.push(Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust);
+  }
+};
+
+capHill.cookiesPerCust = function() {
+  this.numCustHourly();
+  for (var i = 0; i < hours.length; i++) {
+    var eachCookies = Math.ceil(this.avgCust[i] * this.avgCookie);
+    this.capHillArray.push(eachCookies);
+    this.totalCookies += eachCookies;
+  }
+};
+
+
+// will take the array and display it in an unordered list
+capHill.render = function() {
+  capHill.cookiesPerCust();
+  for (var i = 0; i < this.capHillArray.length; i++) {
+    this.finalArray.push(hours[i] + this.capHillArray[i] + ' cookies');
+  }
+  this.finalArray.push('Total: ' + this.totalCookies);
+};
+
+capHill.render();
+
+var capHillTitle = document.createElement('h2');
+document.body.appendChild(capHillTitle);
+
+capHillTitle.textContent = capHill.name;
+
+var capHillList = document.createElement('ul');
+
+for (i = 0; i < capHill.finalArray.length; i++) {
+  listElement = document.createElement('li');
+  listElement.textContent = capHill.finalArray[i];
+  capHillList.appendChild(listElement);
+};
+
+document.body.appendChild(capHillList);
 
 
 // Alki store object :
@@ -186,9 +259,15 @@ alki.render = function() {
   for (var i = 0; i < this.alkiArray.length; i++) {
     this.finalArray.push(hours[i] + this.alkiArray[i] + ' cookies');
   }
+  this.finalArray.push('Total: ' + this.totalCookies);
 };
 
 alki.render();
+
+var alkiTitle = document.createElement('h2');
+document.body.appendChild(alkiTitle);
+
+alkiTitle.textContent = alki.name;
 
 var alkiList = document.createElement('ul');
 
