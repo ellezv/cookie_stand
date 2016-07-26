@@ -7,36 +7,36 @@ var firstPike = {
   minCust: 23,
   maxCust: 65,
   avgCookie: 6.3,
-  avgCust: [],
-  firstPikeArray: [],
+  customersEachHour: [],
+  cookiesSoldEachHour: [],
   totalCookies: 0,
-  finalArray: [],
+  stringsForDisplayInLists: [],
   name: 'First and Pike'
 };
 
 firstPike.numCustHourly = function() {
   for (var i = 0; i < hours.length; i++ ) {
-    this.avgCust.push(Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust);
+    this.customersEachHour.push(Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust);
   }
 };
 
-firstPike.cookiesPerCust = function() {
+firstPike.cookiesEachHour = function() {
   this.numCustHourly();
   for (var i = 0; i < hours.length; i++) {
-    var eachCookies = Math.ceil(this.avgCust[i] * this.avgCookie);
-    this.firstPikeArray.push(eachCookies);
-    this.totalCookies += eachCookies;
+    var singleHourOfCookieSales = Math.ceil(this.customersEachHour[i] * this.avgCookie);
+    this.cookiesSoldEachHour.push(singleHourOfCookieSales);
+    this.totalCookies += singleHourOfCookieSales;
   }
 };
 
 
 // will take the array and display it in an unordered list
 firstPike.render = function() {
-  firstPike.cookiesPerCust();
-  for(var i = 0; i < this.firstPikeArray.length; i++) {
-    this.finalArray.push(hours[i] + this.firstPikeArray[i] + ' cookies');
+  firstPike.cookiesEachHour();
+  for(var i = 0; i < hours.length; i++) {
+    this.stringsForDisplayInLists.push(hours[i] + this.cookiesSoldEachHour[i] + ' cookies');
   }
-  this.finalArray.push('Total: ' + this.totalCookies);
+  this.stringsForDisplayInLists.push('Total: ' + this.totalCookies);
 };
 
 firstPike.render();
@@ -48,9 +48,9 @@ pikeTitle.textContent = firstPike.name;
 
 var firstPikeList = document.createElement('ul');
 
-for (var i = 0; i < firstPike.finalArray.length; i++) {
+for (var i = 0; i < firstPike.stringsForDisplayInLists.length; i++) {
   var listElement = document.createElement('li');
-  listElement.textContent = firstPike.finalArray[i];
+  listElement.textContent = firstPike.stringsForDisplayInLists[i];
   firstPikeList.appendChild(listElement);
 };
 
@@ -62,37 +62,37 @@ var seatac = {
   minCust: 3,
   maxCust: 24,
   avgCookie: 1.2,
-  avgCust: [],
+  customersEachHour: [],
   seatacArray: [],
   totalCookies: 0,
-  finalArray: [],
+  stringsForDisplayInLists: [],
   name : 'Seatac Airport',
 };
 
   // methods :
 seatac.numCustHourly = function() {
   for (var i = 0; i < hours.length; i++ ) {
-    this.avgCust.push(Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust);
+    this.customersEachHour.push(Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust);
   }
 };
 
-seatac.cookiesPerCust = function() {
+seatac.cookiesEachHour = function() {
   this.numCustHourly();
   for (var i = 0; i < hours.length; i++) {
-    var eachCookies = Math.ceil(this.avgCust[i] * this.avgCookie);
-    this.seatacArray.push(eachCookies);
-    this.totalCookies += eachCookies;
+    var singleHourOfCookieSales = Math.ceil(this.customersEachHour[i] * this.avgCookie);
+    this.seatacArray.push(singleHourOfCookieSales);
+    this.totalCookies += singleHourOfCookieSales;
   }
 };
 
 
 // will take the array and display it in an unordered list
 seatac.render = function() {
-  seatac.cookiesPerCust();
+  seatac.cookiesEachHour();
   for (var i = 0; i < this.seatacArray.length; i++) {
-    this.finalArray.push(hours[i] + this.seatacArray[i] + ' cookies');
+    this.stringsForDisplayInLists.push(hours[i] + this.seatacArray[i] + ' cookies');
   }
-  this.finalArray.push('Total: ' + this.totalCookies);
+  this.stringsForDisplayInLists.push('Total: ' + this.totalCookies);
 };
 
 seatac.render();
@@ -104,9 +104,9 @@ seatacTitle.textContent = seatac.name;
 
 var seatacList = document.createElement('ul');
 
-for (i = 0; i < seatac.finalArray.length; i++) {
+for (i = 0; i < seatac.stringsForDisplayInLists.length; i++) {
   listElement = document.createElement('li');
-  listElement.textContent = seatac.finalArray[i];
+  listElement.textContent = seatac.stringsForDisplayInLists[i];
   seatacList.appendChild(listElement);
 };
 
@@ -118,37 +118,37 @@ var center = {
   minCust: 11,
   maxCust: 38,
   avgCookie: 3.7,
-  avgCust: [],
+  customersEachHour: [],
   centerArray: [],
   totalCookies: 0,
-  finalArray: [],
+  stringsForDisplayInLists: [],
   name : 'Seattle Center',
 };
 
   // methods :
 center.numCustHourly = function() {
   for (var i = 0; i < hours.length; i++ ) {
-    this.avgCust.push(Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust);
+    this.customersEachHour.push(Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust);
   }
 };
 
-center.cookiesPerCust = function() {
+center.cookiesEachHour = function() {
   this.numCustHourly();
   for (var i = 0; i < hours.length; i++) {
-    var eachCookies = Math.ceil(this.avgCust[i] * this.avgCookie);
-    this.centerArray.push(eachCookies);
-    this.totalCookies += eachCookies;
+    var singleHourOfCookieSales = Math.ceil(this.customersEachHour[i] * this.avgCookie);
+    this.centerArray.push(singleHourOfCookieSales);
+    this.totalCookies += singleHourOfCookieSales;
   }
 };
 
 
 // will take the array and display it in an unordered list
 center.render = function() {
-  center.cookiesPerCust();
+  center.cookiesEachHour();
   for (var i = 0; i < this.centerArray.length; i++) {
-    this.finalArray.push(hours[i] + this.centerArray[i] + ' cookies');
+    this.stringsForDisplayInLists.push(hours[i] + this.centerArray[i] + ' cookies');
   }
-  this.finalArray.push('Total: ' + this.totalCookies);
+  this.stringsForDisplayInLists.push('Total: ' + this.totalCookies);
 };
 
 center.render();
@@ -160,9 +160,9 @@ centerTitle.textContent = center.name;
 
 var centerList = document.createElement('ul');
 
-for (i = 0; i < center.finalArray.length; i++) {
+for (i = 0; i < center.stringsForDisplayInLists.length; i++) {
   listElement = document.createElement('li');
-  listElement.textContent = center.finalArray[i];
+  listElement.textContent = center.stringsForDisplayInLists[i];
   centerList.appendChild(listElement);
 };
 
@@ -173,37 +173,37 @@ var capHill = {
   minCust: 20,
   maxCust: 38,
   avgCookie: 2.3,
-  avgCust: [],
+  customersEachHour: [],
   capHillArray: [],
   totalCookies: 0,
-  finalArray: [],
+  stringsForDisplayInLists: [],
   name : 'Capitol Hill',
 };
 
   // methods :
 capHill.numCustHourly = function() {
   for (var i = 0; i < hours.length; i++ ) {
-    this.avgCust.push(Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust);
+    this.customersEachHour.push(Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust);
   }
 };
 
-capHill.cookiesPerCust = function() {
+capHill.cookiesEachHour = function() {
   this.numCustHourly();
   for (var i = 0; i < hours.length; i++) {
-    var eachCookies = Math.ceil(this.avgCust[i] * this.avgCookie);
-    this.capHillArray.push(eachCookies);
-    this.totalCookies += eachCookies;
+    var singleHourOfCookieSales = Math.ceil(this.customersEachHour[i] * this.avgCookie);
+    this.capHillArray.push(singleHourOfCookieSales);
+    this.totalCookies += singleHourOfCookieSales;
   }
 };
 
 
 // will take the array and display it in an unordered list
 capHill.render = function() {
-  capHill.cookiesPerCust();
+  capHill.cookiesEachHour();
   for (var i = 0; i < this.capHillArray.length; i++) {
-    this.finalArray.push(hours[i] + this.capHillArray[i] + ' cookies');
+    this.stringsForDisplayInLists.push(hours[i] + this.capHillArray[i] + ' cookies');
   }
-  this.finalArray.push('Total: ' + this.totalCookies);
+  this.stringsForDisplayInLists.push('Total: ' + this.totalCookies);
 };
 
 capHill.render();
@@ -215,9 +215,9 @@ capHillTitle.textContent = capHill.name;
 
 var capHillList = document.createElement('ul');
 
-for (i = 0; i < capHill.finalArray.length; i++) {
+for (i = 0; i < capHill.stringsForDisplayInLists.length; i++) {
   listElement = document.createElement('li');
-  listElement.textContent = capHill.finalArray[i];
+  listElement.textContent = capHill.stringsForDisplayInLists[i];
   capHillList.appendChild(listElement);
 };
 
@@ -229,37 +229,37 @@ var alki = {
   minCust: 2,
   maxCust: 16,
   avgCookie: 4.6,
-  avgCust: [],
+  customersEachHour: [],
   alkiArray: [],
   totalCookies: 0,
-  finalArray: [],
+  stringsForDisplayInLists: [],
   name : 'Alki',
 };
 
   // methods :
 alki.numCustHourly = function() {
   for (var i = 0; i < hours.length; i++ ) {
-    this.avgCust.push(Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust);
+    this.customersEachHour.push(Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust);
   }
 };
 
-alki.cookiesPerCust = function() {
+alki.cookiesEachHour = function() {
   this.numCustHourly();
   for (var i = 0; i < hours.length; i++) {
-    var eachCookies = Math.ceil(this.avgCust[i] * this.avgCookie);
-    this.alkiArray.push(eachCookies);
-    this.totalCookies += eachCookies;
+    var singleHourOfCookieSales = Math.ceil(this.customersEachHour[i] * this.avgCookie);
+    this.alkiArray.push(singleHourOfCookieSales);
+    this.totalCookies += singleHourOfCookieSales;
   }
 };
 
 
 // will take the array and display it in an unordered list
 alki.render = function() {
-  alki.cookiesPerCust();
+  alki.cookiesEachHour();
   for (var i = 0; i < this.alkiArray.length; i++) {
-    this.finalArray.push(hours[i] + this.alkiArray[i] + ' cookies');
+    this.stringsForDisplayInLists.push(hours[i] + this.alkiArray[i] + ' cookies');
   }
-  this.finalArray.push('Total: ' + this.totalCookies);
+  this.stringsForDisplayInLists.push('Total: ' + this.totalCookies);
 };
 
 alki.render();
@@ -271,9 +271,9 @@ alkiTitle.textContent = alki.name;
 
 var alkiList = document.createElement('ul');
 
-for (i = 0; i < alki.finalArray.length; i++) {
+for (i = 0; i < alki.stringsForDisplayInLists.length; i++) {
   listElement = document.createElement('li');
-  listElement.textContent = alki.finalArray[i];
+  listElement.textContent = alki.stringsForDisplayInLists[i];
   alkiList.appendChild(listElement);
 };
 
