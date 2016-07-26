@@ -1,25 +1,29 @@
 body {
   background-color: #FFD2AF;
-  color: #6AD4FF;
+  color: #48C6FF;
 }
 
 h1 {
-  font-family: verdana;
+  font-family: 'Lobster', cursive;
   text-align: center;
 }
 
 nav {
         float: left;
         margin-left : 33%;
-    }
-    nav ul {
+        font-family: 'Lobster', cursive;
+}
+
+nav ul {
         padding: 10px ;
         float: left;
         border-bottom: 10px;
         border: 2px solid #6AD4FF;
+        border-radius: 25px;
 
-    }
-    nav li {
+}
+
+nav li {
         float: left;
         display: block;
         height: 25px;
@@ -33,4 +37,9 @@ img{
   width: 250px;
   height: 100px;
   margin-left: 40%;
+  margin-bottom: 30px;
+}
+
+p {
+  font-family: arial;
 }
