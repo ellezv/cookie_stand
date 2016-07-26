@@ -1,0 +1,12 @@
+h1 {
+  text-align: center;
+  color: #FFD2AF;
+}
+
+table {
+  border: 2px solid black;
+}
+
+tr {
+  border-top: 2px solid black;
+}
