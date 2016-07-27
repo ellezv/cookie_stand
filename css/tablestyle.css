@@ -1,0 +1,28 @@
+h1 {
+  text-align: center;
+  color: #FFD2AF;
+}
+
+img{
+  width: 250px;
+  height: 100px;
+  margin-left: 40%;
+  margin-bottom: 30px;
+}
+
+table {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+td {
+  border: 2px solid black;
+}
+th {
+  border: 2px solid black;
+  min-width: 70px;
+}
+
+tr {
+  height: 25px;
+}
