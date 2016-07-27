@@ -1,6 +1,7 @@
 'use strict';
 var hours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: '];
 var myStores = [];
+var totalForEachHour = [];
 
 function Store(minCust, maxCust, avgCookie, name) {
   this.minCust = minCust;
@@ -40,11 +41,21 @@ function Store(minCust, maxCust, avgCookie, name) {
   myStores.push(this);
 };
 
+
 var pike = new Store(23, 65, 6.3, 'First and Pike');
 var seatac = new Store(3, 24, 1.2, 'Seatac Airport');
 var center = new Store(11, 38, 3.7, 'Seattle Center');
 var capHill = new Store(20, 38, 2.3, 'Capitol Hill');
 var alki = new Store(2, 16, 4.6, 'Alki');
+
+function calcEachHour() {
+  for (var hour = 0; hour < hours.length; hour ++) {
+    var sum = myStores[0].cookiesSoldEachHour[hour] + myStores[1].cookiesSoldEachHour[hour] + myStores[2].cookiesSoldEachHour[hour] + myStores[3].cookiesSoldEachHour[hour] + myStores[4].cookiesSoldEachHour[hour] ;
+    totalForEachHour.push(sum);
+  }
+}
+
+calcEachHour();
 
 var storeTable = document.getElementById('storeTable');
 
@@ -88,3 +99,19 @@ function makeAllStoreRows() {
 };
 
 makeAllStoreRows();
+
+function makeTotalsRow() {
+  var tableRow = document.createElement('tr');
+  var tdElement = document.createElement('td');
+  tdElement.textContent = 'Totals';
+  tableRow.appendChild(tdElement);
+  for (var i = 0; i < hours.length; i++) {
+    tdElement = document.createElement('td');
+    tdElement.textContent = totalForEachHour[i];
+    tableRow.appendChild(tdElement);
+  }
+  storeTable.appendChild(tableRow);
+
+}
+
+makeTotalsRow();
