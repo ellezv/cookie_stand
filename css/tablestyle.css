@@ -18,11 +18,8 @@ table {
 td {
   border: 2px solid black;
 }
+
 th {
   border: 2px solid black;
   min-width: 70px;
-}
-
-tr {
-  height: 25px;
 }
