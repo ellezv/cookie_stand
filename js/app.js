@@ -3,8 +3,11 @@ var hours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '
 var myStores = [];
 var totalForEachHour = [];
 var storeTable = document.getElementById('storeTable');
+var newLocationForm = document.getElementById('newLocationForm');
+
 
 function Store(minCust, maxCust, avgCookie, name) {
+  this.name = name;
   this.minCust = minCust;
   this.maxCust = maxCust;
   this.avgCookie = avgCookie;
@@ -12,7 +15,6 @@ function Store(minCust, maxCust, avgCookie, name) {
   this.cookiesSoldEachHour = [];
   this.totalCookies = 0;
   this.stringsForDisplayInLists = [];
-  this.name = name;
 
   this.numCustHourly = function() {
     for (var i = 0; i < hours.length; i++ ) {
@@ -111,9 +113,30 @@ function makeTotalsRow() {
   storeTable.appendChild(tableRow);
 }
 
+function handleNewLocationSubmit(event){
+
+  //not reload when submit
+  event.preventDefault();
+
+  if (!event.target.newLocationName.value || !event.target.minCustomer.value || !event.target.maxCustomer.value || !event.target.averageCookies.value) {
+    return alert('Son of a cookie, gimme data!');
+  }
+  var newStore = event.target.newLocationName.value;
+  var newStoreMinCustomer = event.target.minCustomer.value;
+  var newStoreMaxCustomer = event.target.maxCustomer.value;
+  var newStoreAverageCookies = event.target.averageCookies.value;
+  console.log('user submit: ', newStore, newStoreMinCustomer, newStoreMaxCustomer, newStoreAverageCookies);
+
+  var makeNewStore = new Store(newStoreMinCustomer, newStoreMaxCustomer, newStoreAverageCookies, newStore);
+  console.log('new store created', newStore, myStores);
+
+}
+
 //
 
 
 makeHeaderRow();
 makeAllStoreRows();
 makeTotalsRow();
+
+newLocationForm.addEventListener('submit', handleNewLocationSubmit);

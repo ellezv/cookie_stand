@@ -10,6 +10,27 @@
       <h1>Cookies Needed By Location Each Day</h1>
     </header>
     <img src="img/salmon.png">
+<!-- this is where I put my form  -->
+    <form id= "newLocationForm">
+      <fieldset>
+        <legend>Add a new location</legend>
+
+        <label for="newLocationName">Location: </label>
+        <input name="newLocationName" type="text" />
+
+        <label for="minCustomer">Minimum Customers: </label>
+        <input name="minCustomer" type="number" />
+
+        <label for="maxCustomer">Maximum Customers: </label>
+        <input name="maxCustomer" type="number" />
+
+        <label for="averageCookies">Average Cookies: </label>
+        <input name="averageCookies" type="number" />
+
+        <button type="submit">Create new store location!</button>
+      </fieldset>
+    </form>
+
     <table id="storeTable"></table>
     <script src=js/app.js></script>
   </body>
