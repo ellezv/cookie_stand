@@ -86,7 +86,7 @@ function makeAllStoreRows() {
 };
 
 function makeTotalsRow() {
-  var footerRow = document.createElement('tfoot')
+  var footerRow = document.createElement('tfoot');
   storeTable.appendChild(footerRow);
   var tableRow = document.createElement('tr');
   tableRow.textContent = 'Totals';
@@ -115,13 +115,18 @@ function handleNewLocationSubmit(event){
   if (!event.target.newLocationName.value || !event.target.minCustomer.value || !event.target.maxCustomer.value || !event.target.averageCookies.value) {
     return alert('Son of a cookie, gimme data!');
   }
+
   var newStore = event.target.newLocationName.value;
   var newStoreMinCustomer = event.target.minCustomer.value;
   var newStoreMaxCustomer = event.target.maxCustomer.value;
   var newStoreAverageCookies = event.target.averageCookies.value;
   console.log('user submit: ', newStore, newStoreMinCustomer, newStoreMaxCustomer, newStoreAverageCookies);
 
-  var makeNewStore = new Store(newStoreMinCustomer, newStoreMaxCustomer, newStoreAverageCookies, newStore);
+  var intMinCustomer = parseInt(newStoreMinCustomer);
+  var intMaxCustomer = parseInt(newStoreMaxCustomer);
+  var floatAverageCookies = parseFloat(newStoreAverageCookies);
+
+  var makeNewStore = new Store(intMinCustomer, intMaxCustomer, floatAverageCookies, newStore);
   console.log('new store created', newStore, myStores);
 
   event.target.newLocationName.value = null;
