@@ -41,9 +41,6 @@ var center = new Store(11, 38, 3.7, 'Seattle Center');
 var capHill = new Store(20, 38, 2.3, 'Capitol Hill');
 var alki = new Store(2, 16, 4.6, 'Alki');
 
-function makeItWork() {
-  storeTable.innerHTML = '';
-}
 
 function makeHeaderRow() {
   var tableRow = document.createElement('tr');
@@ -105,18 +102,12 @@ function handleNewLocationSubmit(event){
   //not reload when submit
   event.preventDefault();
 
-  if (!event.target.newLocationName.value || !event.target.minCustomer.value || !event.target.maxCustomer.value || !event.target.averageCookies.value) {
-    return alert('Son of a cookie, gimme data!');
-  }
+  var inputStoreMinCustomer = parseInt(event.target.minCustomer.value);
+  var inputStoreMaxCustomer = parseInt(event.target.maxCustomer.value);
+  var inputStoreAverageCookies = parseFloat(event.target.maxCustomer.value);
   var inputStore = event.target.newLocationName.value;
-  var inputStoreMinCustomer = event.target.minCustomer.value;
-  var inputStoreMaxCustomer = event.target.maxCustomer.value;
-  var inputStoreAverageCookies = event.target.averageCookies.value;
   console.log('user submit: ', inputStore, inputStoreMinCustomer, inputStoreMaxCustomer, inputStoreAverageCookies);
 
-  var intMinCustomer = parseInt(inputStoreMinCustomer);
-  var intMaxCustomer = parseInt(inputStoreMaxCustomer);
-  var floatAverageCookies = parseFloat(inputStoreAverageCookies);
 
   for (var i = 0; i < myStores.length; i++) {
     if (inputStore.toLowerCase() === myStores[i].name.toLowerCase()) {
@@ -124,7 +115,7 @@ function handleNewLocationSubmit(event){
     }
   }
 
-  var makeNewStore = new Store(intMinCustomer, intMaxCustomer, floatAverageCookies, inputStore);
+  var makeNewStore = new Store(inputStoreMinCustomer, inputStoreMaxCustomer, inputStoreAverageCookies, inputStore);
   console.log('new store created', inputStore, myStores);
 
 
@@ -133,7 +124,7 @@ function handleNewLocationSubmit(event){
   event.target.maxCustomer.value = null;
   event.target.averageCookies.value = null;
 
-  makeItWork();
+  storeTable.textContent = '';
   makeHeaderRow();
   makeAllStoreRows();
   makeTotalsRow();
