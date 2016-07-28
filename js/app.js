@@ -30,15 +30,8 @@ function Store(minCust, maxCust, avgCookie, name) {
     }
   };
 
-  this.render = function() {
-    this.cookiesEachHour();
-    for(var i = 0; i < hours.length; i++) {
-      this.stringsForDisplayInLists.push(hours[i] + this.cookiesSoldEachHour[i] + ' cookies');
-    }
-    this.stringsForDisplayInLists.push('Total: ' + this.totalCookies);
-  };
 
-  this.render();
+  this.cookiesEachHour();
   myStores.push(this);
 };
 
@@ -115,19 +108,25 @@ function handleNewLocationSubmit(event){
   if (!event.target.newLocationName.value || !event.target.minCustomer.value || !event.target.maxCustomer.value || !event.target.averageCookies.value) {
     return alert('Son of a cookie, gimme data!');
   }
+  var inputStore = event.target.newLocationName.value;
+  var inputStoreMinCustomer = event.target.minCustomer.value;
+  var inputStoreMaxCustomer = event.target.maxCustomer.value;
+  var inputStoreAverageCookies = event.target.averageCookies.value;
+  console.log('user submit: ', inputStore, inputStoreMinCustomer, inputStoreMaxCustomer, inputStoreAverageCookies);
 
-  var newStore = event.target.newLocationName.value;
-  var newStoreMinCustomer = event.target.minCustomer.value;
-  var newStoreMaxCustomer = event.target.maxCustomer.value;
-  var newStoreAverageCookies = event.target.averageCookies.value;
-  console.log('user submit: ', newStore, newStoreMinCustomer, newStoreMaxCustomer, newStoreAverageCookies);
+  var intMinCustomer = parseInt(inputStoreMinCustomer);
+  var intMaxCustomer = parseInt(inputStoreMaxCustomer);
+  var floatAverageCookies = parseFloat(inputStoreAverageCookies);
 
-  var intMinCustomer = parseInt(newStoreMinCustomer);
-  var intMaxCustomer = parseInt(newStoreMaxCustomer);
-  var floatAverageCookies = parseFloat(newStoreAverageCookies);
+  for (var i = 0; i < myStores.length; i++) {
+    if (inputStore.toLowerCase() === myStores[i].name.toLowerCase()) {
+      myStores.splice(i, 1);
+    }
+  }
 
-  var makeNewStore = new Store(intMinCustomer, intMaxCustomer, floatAverageCookies, newStore);
-  console.log('new store created', newStore, myStores);
+  var makeNewStore = new Store(intMinCustomer, intMaxCustomer, floatAverageCookies, inputStore);
+  console.log('new store created', inputStore, myStores);
+
 
   event.target.newLocationName.value = null;
   event.target.minCustomer.value = null;
@@ -139,6 +138,7 @@ function handleNewLocationSubmit(event){
   makeAllStoreRows();
   makeTotalsRow();
 }
+
 
 //
 
