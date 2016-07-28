@@ -13,7 +13,6 @@ function Store(minCust, maxCust, avgCookie, name) {
   this.customersEachHour = [];
   this.cookiesSoldEachHour = [];
   this.totalCookies = 0;
-  this.stringsForDisplayInLists = [];
 
   this.numCustHourly = function() {
     for (var i = 0; i < hours.length; i++ ) {
@@ -97,7 +96,7 @@ function makeTotalsRow() {
   tableRow.appendChild(tdElement);
 }
 
-function handleNewLocationSubmit(event){
+function handleNewLocationSubmit(event) {
 
   //not reload when submit
   event.preventDefault();
@@ -108,15 +107,24 @@ function handleNewLocationSubmit(event){
   var inputStore = event.target.newLocationName.value;
   console.log('user submit: ', inputStore, inputStoreMinCustomer, inputStoreMaxCustomer, inputStoreAverageCookies);
 
-
+  var check = false;
   for (var i = 0; i < myStores.length; i++) {
     if (inputStore.toLowerCase() === myStores[i].name.toLowerCase()) {
-      myStores.splice(i, 1);
+      myStores[i].name = inputStore;
+      myStores[i].minCust = inputStoreMinCustomer;
+      myStores[i].maxCust = inputStoreMaxCustomer;
+      myStores[i].avgCookie = inputStoreAverageCookies;
+      myStores[i].totalCookies = 0;
+      myStores[i].cookiesSoldEachHour = [];
+      myStores[i].customersEachHour = [];
+      myStores[i].cookiesEachHour();
+      check = true;
     }
   }
-
-  var makeNewStore = new Store(inputStoreMinCustomer, inputStoreMaxCustomer, inputStoreAverageCookies, inputStore);
-  console.log('new store created', inputStore, myStores);
+  if (check === false ) {
+    var makeNewStore = new Store(inputStoreMinCustomer, inputStoreMaxCustomer, inputStoreAverageCookies, inputStore);
+    console.log('new store created', inputStore, myStores);
+  }
 
 
   event.target.newLocationName.value = null;
