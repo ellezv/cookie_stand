@@ -16,16 +16,16 @@
         <legend>Add a new location</legend>
 
         <label for="newLocationName">Location: </label>
-        <input name="newLocationName" type="text" />
+        <input name="newLocationName" type="text" required/>
 
         <label for="minCustomer">Minimum Customers: </label>
-        <input name="minCustomer" type="number" />
+        <input name="minCustomer" type="number" required/>
 
         <label for="maxCustomer">Maximum Customers: </label>
-        <input name="maxCustomer" type="number" />
+        <input name="maxCustomer" type="number" required/>
 
         <label for="averageCookies">Average Cookies: </label>
-        <input name="averageCookies" type="number" step="any"/>
+        <input name="averageCookies" type="float" required/>
 
         <button type="submit">Create new store location!</button>
       </fieldset>
