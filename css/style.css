@@ -1,80 +1,107 @@
 body {
   background-color: #FFD2AF;
-  color: #48C6FF;
 }
-
-h1 {
+header {
   font-family: 'Lobster', cursive;
   text-align: center;
+  background-color: #FFD2AF;
+  width: 100%;
 }
 
 nav {
-        float: left;
-        margin-left : 33%;
-        font-family: 'Lobster', cursive;
+
+  font-family: 'Lobster', cursive;
 }
 
-nav ul {
-        padding: 10px ;
-        float: left;
-        border-bottom: 10px;
-        border: 2px solid #6AD4FF;
-        border-radius: 25px;
+nav {
 
 }
 
-nav li {
-        float: left;
-        display: block;
-        height: 25px;
-        padding: 12px 18px 8px 18px;
-        vertical-align: middle;
-        text-decoration: underline;
+#un {
+  border-right : 2px solid black;
+}
 
-    }
+#deux {
+  border-right: 2px solid black;
+}
+
+nav p {
+
+  display: inline-block;
+  height: 25px;
+  padding: 12px 18px 8px 18px;
+  vertical-align: middle;
+}
+
+aside {
+  background-color: white;
+  float: left;
+  width: 20%;
+  border-right: 2px solid black;
+  padding-bottom: 11.4%;
+}
+
+article {
+  background-color: white;
+  padding-left: 25px;
+  margin-right: 10px;
+  float: left;
+  width:75%;
+}
+
+#fish {
+  width: 80px;
+}
+
+#iHateSalmonCookies {
+  width: 100%;
+}
+
+#cookieCutter {
+  width: 100%;
+}
 
 #salmon {
-  width: 250px;
-  height: 100px;
-  margin-left: 40%;
-  margin-bottom: 30px;
+  width: 150px;
 }
 
-#locations {
-  text-align: center;
+#chinook {
+  width: 150px;
+}
+
+#terriblePun {
   font-family: 'Lobster', cursive;
-  margin-top: 30px;
-}
-
-#frostedCookie {
-  height: 40px;
-
+  text-align: center;
 }
 
 #merch {
-  text-align: center;
   font-family: 'Lobster', cursive;
+  text-align: center;
 }
 
 #shirt {
-  margin-left: 45%;
-  height: 100px;
+  margin-left: 40%;
+  width: 175px;
 }
-.storeBox {
-  display: inline-block;;
-  margin-right: 25px;
-}
-.storeBoxName {
-  text-align: center;
+
+#footer {
   font-family: 'Lobster', cursive;
-}
-
-p {
-  font-family: arial;
+  font-size: small;
   text-align: center;
 }
 
-footer {
+#fishy {
+  width: 65px;
+}
+
+#family {
+  max-width: 75%;
+}
+
+#warning {
   text-align: center;
-  margin-top: 50px;
+}
+
+h2 {
+  font-family: 'Lobster', cursive;
 }
