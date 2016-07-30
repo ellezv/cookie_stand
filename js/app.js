@@ -3,6 +3,7 @@ var hours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '
 var myStores = [];
 var storeTable = document.getElementById('storeTable');
 var newLocationForm = document.getElementById('newLocationForm');
+document.getElementById('deleteForm');
 
 
 function Store(minCust, maxCust, avgCookie, name) {
@@ -138,6 +139,21 @@ function handleNewLocationSubmit(event) {
   makeTotalsRow();
 }
 
+function handleDeleteLocation() {
+  event.preventDefault();
+  var inputDeleteLocation = event.target.deleteLocationName.value.toLowerCase();
+
+  for (var i = 0; i < myStores.length; i++){
+    if (inputDeleteLocation === myStores[i].name.toLowerCase()) {
+      myStores.splice(i,1);
+    }
+  }
+  event.target.deleteLocationName.value = null;
+  storeTable.textContent = '';
+  makeHeaderRow();
+  makeAllStoreRows();
+  makeTotalsRow();
+}
 
 //
 
@@ -147,3 +163,4 @@ makeAllStoreRows();
 makeTotalsRow();
 
 newLocationForm.addEventListener('submit', handleNewLocationSubmit);
+deleteForm.addEventListener('submit', handleDeleteLocation);
