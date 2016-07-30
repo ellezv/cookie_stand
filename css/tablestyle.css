@@ -10,9 +10,10 @@ img{
   margin-bottom: 30px;
 }
 
-table {
+#storeTable {
   border: 2px solid black;
   border-collapse: collapse;
+  width : 96%
 }
 
 td {
@@ -22,4 +23,13 @@ td {
 th {
   border: 2px solid black;
   min-width: 70px;
+}
+
+form {
+  width: 96%;
+  padding-top: 20px;
+}
+
+body {
+  margin-left: 3%;
 }
