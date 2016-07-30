@@ -23,8 +23,9 @@ function Store(minCust, maxCust, avgCookie, name) {
 
   this.cookiesEachHour = function() {
     this.numCustHourly();
+    var singleHourOfCookieSales
     for (var i = 0; i < hours.length; i++) {
-      var singleHourOfCookieSales = Math.ceil(this.customersEachHour[i] * this.avgCookie);
+      singleHourOfCookieSales = Math.ceil(this.customersEachHour[i] * this.avgCookie);
       this.cookiesSoldEachHour.push(singleHourOfCookieSales);
       this.totalCookies += singleHourOfCookieSales;
     }
@@ -58,9 +59,11 @@ function makeHeaderRow() {
 }
 
 function makeAllStoreRows() {
+  var tableRow;
+  var tdElement;
   for (var store = 0; store < myStores.length; store++ ){
-    var tableRow = document.createElement('tr');
-    var tdElement = document.createElement('td');
+    tableRow = document.createElement('tr');
+    tdElement = document.createElement('td');
     tdElement.textContent = myStores[store].name;
     tableRow.appendChild(tdElement);
     for (var i = 0; i < hours.length; i++) {
@@ -81,14 +84,16 @@ function makeTotalsRow() {
   var tableRow = document.createElement('tr');
   tableRow.textContent = 'Totals';
   footerRow.appendChild(tableRow);
+  var tdElement;
   var globalDailyTotal = 0;
+  var totalForEachHour = 0;
   for (var i = 0; i < hours.length; i++) {
-    var totalForEachHour = 0;
+    totalForEachHour = 0;
     for (var store = 0; store < myStores.length; store++) {
       totalForEachHour = totalForEachHour + myStores[store].cookiesSoldEachHour[i];
       globalDailyTotal += myStores[store].cookiesSoldEachHour[i];
     }
-    var tdElement = document.createElement('td');
+    tdElement = document.createElement('td');
     tdElement.textContent = totalForEachHour;
     tableRow.appendChild(tdElement);
   }
@@ -108,7 +113,7 @@ function handleNewLocationSubmit(event) {
   var inputStore = event.target.newLocationName.value;
   console.log('user submit: ', inputStore, inputStoreMinCustomer, inputStoreMaxCustomer, inputStoreAverageCookies);
 
-  var check = false;
+  var storeFound = false;
   for (var i = 0; i < myStores.length; i++) {
     if (inputStore.toLowerCase() === myStores[i].name.toLowerCase()) {
       myStores[i].name = inputStore;
@@ -119,10 +124,10 @@ function handleNewLocationSubmit(event) {
       myStores[i].cookiesSoldEachHour = [];
       myStores[i].customersEachHour = [];
       myStores[i].cookiesEachHour();
-      check = true;
+      storeFound = true;
     }
   }
-  if (check === false ) {
+  if (storeFound === false ) {
     var makeNewStore = new Store(inputStoreMinCustomer, inputStoreMaxCustomer, inputStoreAverageCookies, inputStore);
     console.log('new store created', inputStore, myStores);
   }
