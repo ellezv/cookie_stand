@@ -1,5 +1,6 @@
 body {
   background-color: #FFD2AF;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 header {
   font-family: 'Lobster', cursive;
@@ -34,19 +35,26 @@ nav p {
 }
 
 aside {
+  margin-left: 16px;
   background-color: white;
   float: left;
   width: 20%;
   border-right: 2px solid black;
-  padding-bottom: 11.4%;
+}
+
+aside h2 {
+  position: relative;
+  left: 50px;
 }
 
 article {
   background-color: white;
-  padding-left: 25px;
+  padding-left: 10px;
   margin-right: 10px;
+  padding-right: 10px;
   float: left;
   width:75%;
+  text-align: center;
 }
 
 #fish {
@@ -55,9 +63,11 @@ article {
 
 #iHateSalmonCookies {
   width: 100%;
+  margin-top: 40px;
 }
 
 #cookieCutter {
+  padding-top: 130px;
   width: 100%;
 }
 
@@ -80,7 +90,6 @@ article {
 }
 
 #shirt {
-  margin-left: 40%;
   width: 175px;
 }
 
@@ -88,6 +97,8 @@ article {
   font-family: 'Lobster', cursive;
   font-size: small;
   text-align: center;
+  position: relative;
+  top: 70px;
 }
 
 #fishy {
@@ -104,4 +115,8 @@ article {
 
 h2 {
   font-family: 'Lobster', cursive;
+}
+
+.storeBoxName {
+  text-align: center;
 }

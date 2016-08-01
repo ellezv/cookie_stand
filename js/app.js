@@ -19,17 +19,17 @@ function Store(minCust, maxCust, avgCookie, name) {
     for (var i = 0; i < hours.length; i++ ) {
       this.customersEachHour.push(Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust);
     }
-  }
+  };
 
   this.cookiesEachHour = function() {
     this.numCustHourly();
-    var singleHourOfCookieSales
+    var singleHourOfCookieSales;
     for (var i = 0; i < hours.length; i++) {
       singleHourOfCookieSales = Math.ceil(this.customersEachHour[i] * this.avgCookie);
       this.cookiesSoldEachHour.push(singleHourOfCookieSales);
       this.totalCookies += singleHourOfCookieSales;
     }
-  }
+  };
 
 
   this.cookiesEachHour();
